@@ -1,0 +1,35 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: client executing request
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{content: "HTML is easy", date: "2019-05-23T17:30:31.098Z"},…]
+    deactivate server
+
+    Note right of browser: Client executing POST and receive request
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    Note right of browser: 201 Created with payload content: "Birdie", date: "2025-04-24T18:11:19.954Z"
+    server-->>server: update data.json
+    server-->>browser: {"message":"note created"}
+    deactivate server
+
