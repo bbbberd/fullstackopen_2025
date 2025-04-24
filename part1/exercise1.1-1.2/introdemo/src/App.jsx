@@ -1,6 +1,6 @@
 const Part = (props) => {
   return (
-    <>{props.part}, {props.exercise}</>
+    <div>{props.part}, {props.exercise}</div>
   )
 }
 
