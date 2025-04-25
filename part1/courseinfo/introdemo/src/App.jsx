@@ -1,3 +1,4 @@
+//exercise 1.1-1.2
 const Part = (props) => {
   return (
     <div>{props.part}, {props.exercise}</div>
